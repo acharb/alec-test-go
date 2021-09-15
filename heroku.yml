@@ -2,4 +2,4 @@ build:
   docker:
     web: Dockerfile
 run:
-  web: ./alec-test-go
+  web: ./app/alec-test-go
