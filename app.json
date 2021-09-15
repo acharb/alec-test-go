@@ -1,4 +1,5 @@
 {
   "name": "Alec test go server",
-  "description": "Alec is testing"
+  "description": "Alec is testing",
+  "stack": "container"
 }
