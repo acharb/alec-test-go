@@ -1,5 +1,9 @@
+setup:
+  addons:
+    - plan: heroku-postgresql
+      as: DATABASE
+  config:
+    TEST_VAR: alec
 build:
   docker:
     web: Dockerfile
-run:
-  web: ./alec-test-go
