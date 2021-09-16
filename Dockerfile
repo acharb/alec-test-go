@@ -11,4 +11,15 @@ COPY *.go ./
 
 RUN go build -o /alec-test-go
 
-CMD ["/alec-test-go"]
+
+ADD dependencies /app
+RUN ["chmod", "+x", "/app/dependencies"]
+RUN /app/dependencies
+
+ADD start /app
+RUN ["chmod", "+x", "/app/start"]
+CMD ["/app/start"]
+
+
+# CMD ["/alec-test-go"]
+

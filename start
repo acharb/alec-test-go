@@ -1,0 +1,11 @@
+#! /usr/bin/env bash
+set -e
+
+echo "hello"
+
+
+function main() {
+  echo ""
+  echo "Starting start script"
+  echo ""
+}
