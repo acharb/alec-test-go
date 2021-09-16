@@ -7,7 +7,7 @@
       "plan": "heroku-postgresql",
       "as": "DATABASE",
       "options": {
-        "version": "13.4"
+        "version": "13"
       }
     }
   ],
