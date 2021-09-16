@@ -9,6 +9,6 @@ RUN go mod download
 
 COPY *.go ./
 
-RUN go build -o /app/alec-test-go
+RUN go build -o /alec-test-go
 
 CMD ["/alec-test-go"]
