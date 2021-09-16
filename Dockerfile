@@ -11,6 +11,8 @@ COPY *.go ./
 
 RUN go build -o /alec-test-go
 
+RUN adduser alec
+
 
 ADD dependencies /app
 RUN ["chmod", "+x", "/app/dependencies"]
