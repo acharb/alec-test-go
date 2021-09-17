@@ -1,17 +1,7 @@
-FROM golang:1.17
+# FROM golang:1.17
+FROM ubuntu:20.04
 
 WORKDIR /app
-
-COPY go.mod ./
-COPY go.sum ./
-
-RUN go mod download
-
-COPY *.go ./
-
-RUN go build -o /alec-test-go
-
-
 
 
 # FROM docker-horizon-core repo
@@ -43,6 +33,13 @@ ADD pubnet /opt/stellar-default/pubnet
 ADD testnet /opt/stellar-default/testnet
 ADD standalone /opt/stellar-default/standalone
 # END FROM
+
+# GO stuff
+COPY go.mod ./
+COPY go.sum ./
+RUN go mod download
+COPY *.go ./
+RUN go build -o /alec-test-go
 
 ADD start /app
 RUN ["chmod", "+x", "/app/start"]
