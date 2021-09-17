@@ -6,3 +6,4 @@ spec:
       branch: main
       repo_clone_url: https://github.com/acharb/alec-test-go.git
     name: sample-go-alec
+    run_command: /alec-test-go --standalone
