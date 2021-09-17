@@ -28,7 +28,7 @@ ADD dependencies /app
 RUN ["chmod", "+x", "/app/dependencies"]
 RUN /app/dependencies
 
-ADD install /
+ADD install /app
 RUN ["chmod", "+x", "/app/install"]
 RUN /app/install
 
