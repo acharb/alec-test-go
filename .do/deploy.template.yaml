@@ -1,0 +1,8 @@
+spec:
+  name: sample-go-alec
+  services:
+  - dockerfile_path: Dockerfile
+    git:
+      branch: main
+      repo_clone_url: https://github.com/acharb/alec-test-go.git
+    name: sample-go-alec
