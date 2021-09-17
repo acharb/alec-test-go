@@ -20,8 +20,8 @@ RUN /app/dependencies
 
 ADD start /app
 RUN ["chmod", "+x", "/app/start"]
-CMD ["/app/start"]
+# CMD ["/app/start"]
 
 
-# CMD ["/alec-test-go"]
+CMD ["/alec-test-go"]
 
