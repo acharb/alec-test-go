@@ -45,5 +45,5 @@ RUN go build -o /alec-test-go
 # RUN ["chmod", "+x", "/app/start"]
 # # CMD ["/app/start"]
 
-CMD ["/alec-test-go"]
+ENTRYPOINT ["/alec-test-go"]
 
