@@ -45,7 +45,5 @@ ADD start /app
 RUN ["chmod", "+x", "/app/start"]
 # CMD ["/app/start"]
 
-RUN /app/start
-
 CMD ["/alec-test-go"]
 
