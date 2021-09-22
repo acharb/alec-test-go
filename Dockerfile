@@ -1,6 +1,6 @@
 # FROM golang:1.17
-# FROM ubuntu:20.04
-FROM ubuntu:18.04
+FROM ubuntu:20.04
+# FROM ubuntu:18.04
 
 WORKDIR /app
 
@@ -43,9 +43,8 @@ RUN /app/test-dependencies
 # GO stuff
 COPY go.mod ./
 COPY go.sum ./
-# RUN go mod download
-# ubuntu 18:
-# RUN go get
+# ubuntu 18 don't download:
+RUN go mod download
 COPY *.go ./
 RUN go build -o /alec-test-go
 
