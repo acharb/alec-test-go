@@ -4,7 +4,9 @@ set -e
 # dependencies
 export DEBIAN_FRONTEND=noninteractive
 apt-get update
-apt-get install -y postgresql-12.8 golang 
+# apt-get install -y postgresql-12 golang 
+# ubuntu 18:
+apt-get install -y postgresql-10 golang 
 apt-get clean
 
 echo "\nDone installing dependencies...\n"
