@@ -42,16 +42,16 @@ function main() {
 	echo "network: $NETWORK ($NETWORK_PASSPHRASE)"
 
 	copy_defaults
-	init_db
+	# init_db
 
-	init_stellar_core
-	init_horizon
-	copy_pgpass
+	# init_stellar_core
+	# init_horizon
+	# copy_pgpass
 
-	stop_postgres  # this gets started in init_db
+	# stop_postgres  # this gets started in init_db
 
-	# launch services
-	exec_supervisor
+	# # launch services
+	# exec_supervisor
 }
 
 function process_args() {

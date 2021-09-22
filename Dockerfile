@@ -1,18 +1,23 @@
-FROM golang:1.17
-# FROM ubuntu:20.04
+# FROM golang:1.17
+FROM ubuntu:20.04
 
 WORKDIR /app
 
 
-# # FROM docker-horizon-core repo
-# ENV STELLAR_CORE_VERSION 17.4.0-680.c5f6349.focal
-# ENV HORIZON_VERSION 2.8.1-140
+# FROM docker-horizon-core repo
+ENV STELLAR_CORE_VERSION 17.4.0-680.c5f6349.focal
+ENV HORIZON_VERSION 2.8.1-140
 
-# EXPOSE 5432
-# EXPOSE 8000
-# EXPOSE 6060
-# EXPOSE 11625
-# EXPOSE 11626
+EXPOSE 5432
+EXPOSE 8000
+EXPOSE 6060
+EXPOSE 11625
+EXPOSE 11626
+
+# Alec testing:
+ADD test-dependencies /app
+RUN ["chmod", "+x", "/app/test-dependencies"]
+RUN /app/test-dependencies
 
 # ADD dependencies /app
 # RUN ["chmod", "+x", "/app/dependencies"]
@@ -32,18 +37,18 @@ WORKDIR /app
 # ADD pubnet /opt/stellar-default/pubnet
 # ADD testnet /opt/stellar-default/testnet
 # ADD standalone /opt/stellar-default/standalone
-# # END FROM
+# END FROM
 
-# # GO stuff
+# GO stuff
 COPY go.mod ./
 COPY go.sum ./
 RUN go mod download
 COPY *.go ./
 RUN go build -o /alec-test-go
 
-# ADD start /app
-# RUN ["chmod", "+x", "/app/start"]
-# # CMD ["/app/start"]
+ADD start /app
+RUN ["chmod", "+x", "/app/start"]
+# CMD ["/app/start"]
 
 ENTRYPOINT ["/alec-test-go"]
 
