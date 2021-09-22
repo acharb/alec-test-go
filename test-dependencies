@@ -4,7 +4,7 @@ set -e
 # dependencies
 export DEBIAN_FRONTEND=noninteractive
 apt-get update
-apt-get install -y postgresql golang 
+apt-get install -y golang 
 apt-get clean
 
 echo "\nDone installing dependencies...\n"
