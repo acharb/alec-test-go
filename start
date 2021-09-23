@@ -234,7 +234,7 @@ function init_db() {
 
 	run_silent "init-postgres" sudo -u postgres $PGBIN/initdb -D $PGDATA
 
-	start_postgres
+	# start_postgres
 	# run_silent "create-horizon-db" sudo -u postgres createdb horizon
 	# run_silent "create-core-db" sudo -u postgres createdb core
 	# run_silent "stellar-postgres-user" sudo -u postgres psql <<-SQL
