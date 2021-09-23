@@ -7,6 +7,8 @@ apt-get update
 apt-get install -y postgresql-12 golang 
 # ubuntu 18:
 # apt-get install -y postgresql-10 golang 
+# ubuntu:21.04:
+# apt-get install -y postgresql-13 golang 
 apt-get clean
 
 echo "\nDone installing dependencies...\n"

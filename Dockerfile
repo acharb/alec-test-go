@@ -1,6 +1,7 @@
 # FROM golang:1.17
 FROM ubuntu:20.04
 # FROM ubuntu:18.04
+# FROM ubuntu:21.04
 
 WORKDIR /app
 

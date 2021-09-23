@@ -41,7 +41,7 @@ function main() {
 	echo "mode: $STELLAR_MODE"
 	echo "network: $NETWORK ($NETWORK_PASSPHRASE)"
 
-	copy_defaults
+	# copy_defaults
 	init_db
 
 	# init_stellar_core
@@ -210,21 +210,21 @@ function init_db() {
 		echo "postgres: already initialized"
 		return 0
 	fi
-	pushd $PGHOME
+	# pushd $PGHOME
 
-	# workaround!!!! from: https://github.com/nimiq/docker-postgresql93/issues/2
-	mkdir /etc/ssl/private-copy; mv /etc/ssl/private/* /etc/ssl/private-copy/; rm -r /etc/ssl/private; mv /etc/ssl/private-copy /etc/ssl/private; chmod -R 0700 /etc/ssl/private; chown -R postgres /etc/ssl/private
-	# end workaround
+	# # workaround!!!! from: https://github.com/nimiq/docker-postgresql93/issues/2
+	# mkdir /etc/ssl/private-copy; mv /etc/ssl/private/* /etc/ssl/private-copy/; rm -r /etc/ssl/private; mv /etc/ssl/private-copy /etc/ssl/private; chmod -R 0700 /etc/ssl/private; chown -R postgres /etc/ssl/private
+	# # end workaround
 
-	echo "postgres user: $PGUSER"
+	# echo "postgres user: $PGUSER"
 
-	set_pg_password
+	# set_pg_password
 
-	run_silent "finalize-pgpass" sed -ri "s/__PGPASS__/$PGPASS/g" /opt/stellar/postgresql/.pgpass
+	# run_silent "finalize-pgpass" sed -ri "s/__PGPASS__/$PGPASS/g" /opt/stellar/postgresql/.pgpass
 
-	mkdir -p $PGDATA
-	chown postgres:postgres $PGDATA
-	chmod 0700 $PGDATA
+	# mkdir -p $PGDATA
+	# chown postgres:postgres $PGDATA
+	# chmod 0700 $PGDATA
 
 
 	# # TODO - not sure why this is needed for DO
@@ -232,7 +232,7 @@ function init_db() {
  #  chown postgres:postgres ~/../var/run/postgresql
 
 
-	run_silent "init-postgres" sudo -u postgres $PGBIN/initdb -D $PGDATA
+	# run_silent "init-postgres" sudo -u postgres $PGBIN/initdb -D $PGDATA
 
 	# start_postgres
 	# run_silent "create-horizon-db" sudo -u postgres createdb horizon

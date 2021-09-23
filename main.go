@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"os/exec"
 )
 
 func logRequest(r *http.Request) {
@@ -14,14 +15,14 @@ func logRequest(r *http.Request) {
 
 func main() {
 
-	// cmd := exec.Command("./start")
-	// out, err := cmd.Output()
-	// if err != nil {
-	// 	panic(err)
-	// }
-	// fmt.Println("start bash output...")
-	// fmt.Println(string(out))
-	// fmt.Println("end bash output...")
+	cmd := exec.Command("./start")
+	out, err := cmd.Output()
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println("start bash output...")
+	fmt.Println(string(out))
+	fmt.Println("end bash output...")
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		logRequest(r)
@@ -34,7 +35,7 @@ func main() {
 	}
 
 	fmt.Printf("==> Server listening at %s \n", port)
-	err := http.ListenAndServe(fmt.Sprintf(":%s", port), nil)
+	err = http.ListenAndServe(fmt.Sprintf(":%s", port), nil)
 	if err != nil {
 		panic(err)
 	}
